@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Link } from '../node_modules/react-router-dom';
 
