@@ -1,23 +1,14 @@
-const ce = React.createElement
+import React from '../node_modules/react';
+import { render } from '../node_modules/react-dom';
+import { HashRouter, Route } from '../node_modules/react-router-dom';
+import Landing from './Landing';
 
-const MyTitle = function(props){
-  return (
-    ce('div', undefined,
-      ce('h1', {style: {color: props.color}}, props.title)
-    )
-  )
-}
-const MyFirstComponent = function(){
-  return ce('div', {id: 'my-first-component'},
-    [
-      ce(MyTitle, {title: 'Game of Thrones', color: 'YellowGreen'}),
-      ce(MyTitle, {title: 'Stranger Things', color: 'GreenYellow'}),
-      ce(MyTitle, {title: 'Rick and Morty', color: 'cornflowerBlue'}),
-      ce(MyTitle, {title: 'Silicon Valley', color: 'olive'})
-    ]
-  )
-}
-ReactDOM.render(
-  ce(MyFirstComponent),
-  document.getElementById('app')
-)
+const App = () => (
+  <HashRouter>
+    <div className="app">
+      <Route exact path="/" component={Landing} />
+    </div>
+  </HashRouter>
+);
+
+render(<App />, document.getElementById('app'));
